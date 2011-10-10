@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>Previous sibling</title>
+<style>
+* {
+    margin: 0; padding: 0;
+    font-family: Helvetica, Arial, sans-serif;
+}
+div {
+    width: 800px;
+    margin: 0 auto;
+    border: 1px solid gray;
+}
+#main {
+    height: 300px;
+}
+p#sticky {
+    background: red;
+    height: 100px;
+}
+</style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+<script type="text/javascript" src="../jquery.sticky.js"></script>
+<script type="text/javascript">
+$(function () {
+    $('#sticky').sticky();
+});
+</script>
+</head>
+    <p>I'm not a previous sibling</p>
+    <div id="main">
+        <p>I'm the previous sibling</p>
+        <p id="sticky">This is sticky</p>
+    </div>
+    <div id="rest">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tortor purus, iaculis tristique gravida eu, tincidunt eu mi. Ut congue, ligula sed placerat commodo, augue eros tristique nibh, sed dapibus erat tellus at orci. Sed ultricies varius odio vel tincidunt. Nullam accumsan ultricies pellentesque. Mauris ut felis est. Sed aliquet, massa ac suscipit luctus, ligula libero accumsan lorem, a aliquam diam ligula non libero. Curabitur vestibulum egestas purus dictum sagittis. Maecenas eleifend nisl dui, non molestie dui. Ut cursus fermentum lorem, ut semper quam ultrices id. Ut vel lorem magna. Donec ultricies risus id orci scelerisque consequat nec vel nulla. Sed rutrum risus at nunc feugiat malesuada. Proin hendrerit velit id neque scelerisque tincidunt. Nulla ullamcorper faucibus gravida.</p>
+        <p>Duis in nisl venenatis lacus luctus commodo. Maecenas sagittis auctor magna. Vestibulum et dolor neque. Sed ornare viverra luctus. Donec id libero et neque ultrices consectetur. Donec placerat neque sit amet libero gravida suscipit. Morbi dolor turpis, vestibulum a gravida nec, sollicitudin in arcu. In tristique, purus vel faucibus iaculis, odio orci rhoncus erat, ac sodales libero tellus dignissim arcu. Maecenas eleifend condimentum cursus. Etiam metus magna, scelerisque eget tristique vel, interdum eu dui. Curabitur vulputate libero ac urna aliquet sit amet ultricies erat vestibulum. Ut erat orci, condimentum id congue vitae, facilisis id arcu. Nulla mattis, est at ultricies gravida, justo erat tincidunt nunc, nec congue tortor elit id felis. Morbi non arcu risus, nec gravida arcu. Phasellus egestas, turpis sit amet dictum dictum, nulla tortor dictum dui, id ornare justo eros eu lorem. Praesent malesuada, augue dapibus venenatis lobortis, ipsum magna accumsan enim, ut condimentum nisl erat nec dolor.</p>
+        <p>Nam diam enim, facilisis vel dignissim lobortis, cursus in diam. Quisque auctor, elit feugiat molestie scelerisque, nunc enim vehicula tortor, eget tincidunt risus purus eget tellus. Integer vel lacinia magna. Praesent rutrum ornare ipsum, vitae bibendum turpis tempor a. Curabitur ante nibh, pulvinar rhoncus gravida at, tincidunt non justo. Donec dictum purus a nunc adipiscing bibendum. Maecenas sed mauris elit, id luctus urna. Sed facilisis ante libero, vitae aliquet lacus. Suspendisse at quam vel nunc lacinia gravida.</p>
+        <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris molestie nisl mi, et facilisis dui. Mauris non nulla purus, laoreet faucibus metus. Integer tempor, lacus non convallis pretium, risus nibh scelerisque nisi, quis accumsan turpis lectus sed nibh. Cras non nunc purus, id eleifend mi. Donec imperdiet sem in erat ultricies in viverra felis vulputate. Quisque in egestas sapien. In mollis sapien id velit posuere vel commodo urna auctor. Sed venenatis orci id mauris rutrum ut scelerisque tortor tristique. Proin in justo vitae dui egestas molestie nec et ante. Vivamus tristique, est ac ultrices hendrerit, tortor velit mollis leo, sed interdum risus velit a lorem. Nulla quis libero et nisl cursus interdum eu at nisi.</p>
+        <p>Suspendisse ac nulla quis quam sodales mattis. Cras pharetra, felis sit amet commodo pellentesque, sem dolor adipiscing velit, sit amet aliquam ipsum odio et est. Cras ut odio nisl, eget luctus felis. Nam congue pellentesque est ac tempus. Nam odio elit, tincidunt vel dapibus in, tempus id velit. Morbi semper vehicula accumsan. Sed ac enim eget lorem vehicula pulvinar ac ut nisi. In dictum dignissim molestie. Mauris et magna eu nisi fringilla tincidunt ornare vitae quam. Vivamus id augue risus. Nam ac dolor nec lacus porttitor tempus. Curabitur fermentum euismod quam ut pellentesque. Nam fringilla tristique nibh ut aliquet.</p>
+    </div>
+</html>
