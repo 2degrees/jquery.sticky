@@ -46,7 +46,7 @@ overflow reference. This is useful (and necessary) if you have multi-column
 layout where the direct parent of the element may not have the any more height
 than the element itself.
 
-The *gutter* option allows you to specify a certical gutter to keep the element
+The *gutter* option allows you to specify a vertical gutter to keep the element
 away from the top or bottom of the window.
 
 For more details, see the demos.
