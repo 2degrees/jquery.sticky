@@ -1,7 +1,7 @@
 /*
  * jQuery sticky
  *
- * Copyright (c) 2011, 2degrees Limited <egoddard@tech.2degreesnetwork.com>.
+ * Copyright (c) 2011-2013, 2degrees Limited <egoddard@tech.2degreesnetwork.com>.
  * All Rights Reserved.
  *
  * This file is part of jquery.select2autocomplete
@@ -18,6 +18,15 @@
  */
 
 (function ($) {
+    'use strict';
+    
+    var NON_DEFAULT_FLOW_POSITIONS = ['relative', 'absolute'];
+    
+    var is_element_removed_from_document_flow = function ($element) {
+        var element_position = $element.css('position');
+        return $.inArray(element_position, NON_DEFAULT_FLOW_POSITIONS) !== -1;
+    };
+    
     var $window = $(window);
     var self = {
         init: function (options) {
@@ -49,9 +58,11 @@
             });
             
         },
+        
         destroy: function () {
             $window.unbind('.sticky');
         },
+        
         _handle_scroll: function ($parent_elem, $actual_parent_elem, settings) {
             // Compute parameters needed for the sticky element
             var $sticky_elem = $(this);
@@ -81,15 +92,22 @@
                 // of the container
                 var sticky_elem_potential_bottom = window_scroll_top +
                     sticky_elem_height;
+                
                 var parent_bottom = $parent_elem.offset().top +
                     $parent_elem.outerHeight() - settings.gutter;
+                
+                
                 var fixed_width = settings.width || (
                     $actual_parent_elem.width() -
                     sticky_elem_margin_x -
                     sticky_elem_border_x
                     );
                 
+                
                 if (sticky_elem_potential_bottom >= (parent_bottom - settings.gutter)) {
+                    if (is_element_removed_from_document_flow($actual_parent_elem)) {
+                        parent_bottom -= $parent_elem.offset().top;
+                    }
                     $sticky_elem.css({
                         position: 'absolute',
                         top: parent_bottom - sticky_elem_height,
@@ -118,4 +136,5 @@
             $.error('Method ' + method + ' does not exist on jQuery.sticky');
         } 
     }
+    
 })(jQuery);
