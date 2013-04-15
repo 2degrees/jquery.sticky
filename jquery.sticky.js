@@ -122,7 +122,7 @@
                 }
                 
             } else {
-                $sticky_elem.css({position: '', top: ''});
+                $sticky_elem.removeAttr('style');
             }
         }
     };
