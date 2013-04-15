@@ -66,10 +66,12 @@
         _handle_scroll: function ($parent_elem, $actual_parent_elem, settings) {
             // Compute parameters needed for the sticky element
             var $sticky_elem = $(this);
-            var sticky_elem_margin_x = parseInt($sticky_elem.css('margin-left')) +
-                parseInt($sticky_elem.css('margin-right'));
-            var sticky_elem_border_x = parseInt($sticky_elem.css('border-left-width')) +
-                parseInt($sticky_elem.css('border-right-width'));
+            var sticky_elem_margin_x =
+                parseInt($sticky_elem.css('margin-left') || 0, 10) +
+                parseInt($sticky_elem.css('margin-right') || 0, 10);
+            var sticky_elem_border_x =
+                parseInt($sticky_elem.css('border-left-width') || 0, 10) +
+                parseInt($sticky_elem.css('border-right-width') || 0, 10);
             var sticky_elem_height = $sticky_elem.outerHeight();
             
             // Try to use the previous sibling to reference the top point
