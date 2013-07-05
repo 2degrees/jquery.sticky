@@ -75,11 +75,24 @@
             var sticky_elem_height = $sticky_elem.outerHeight();
             
             // Try to use the previous sibling to reference the top point
-            var $top_elem = $sticky_elem.prev();
+            var $top_elem = $sticky_elem.prevAll();
             
             // If there is no previous element, fall back to the parent
             if ($top_elem.length) {
-                var top_scroll_point = $top_elem.offset().top + $top_elem.height();
+                var first_element_offset = null;
+                var total_height = 0;
+                $top_elem.each(function (key, object) {
+                    if (object.nodeName !== 'SCRIPT' &&
+                        object.nodeName !== 'STYLE'
+                        ) {
+                        if (first_element_offset === null) {
+                            first_element_offset = $(object).offset().top;
+                        }
+                        total_height += $(object).height();
+                    }
+                });
+                // Add the the total height = first child's offset top
+                var top_scroll_point = total_height + first_element_offset;
             } else {
                 $top_elem = $parent_elem;
                 var top_scroll_point = $top_elem.offset().top;
@@ -136,7 +149,8 @@
             return self.init.apply(this, arguments);
         } else {
             $.error('Method ' + method + ' does not exist on jQuery.sticky');
-        } 
+        }
     }
     
 })(jQuery);
+
