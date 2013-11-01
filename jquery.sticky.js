@@ -119,8 +119,10 @@
                     });
                 }
                 
+                $('body').addClass('sticky');
             } else {
                 $sticky_elem.removeAttr('style');
+                $('body').removeClass('sticky');
             }
         }
     };
