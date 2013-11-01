@@ -43,6 +43,8 @@
                     var $parent_elem = $sticky_elem.parent();
                     var $actual_parent_elem = $parent_elem;
                 }
+                
+                self._is_paused = false;
 
                 var $anchor = $('<div />');
                 $anchor.css({
@@ -66,10 +68,23 @@
 
         destroy: function () {
             $window.unbind('.sticky');
+            $('body').removeClass('sticky');
+        },
+        
+        pause: function () {
+            self._is_paused = true;
+        },
+
+        resume: function () {
+            self._is_paused = false;
         },
 
         _handle_scroll: function ($parent_elem, $actual_parent_elem, $anchor, settings) {
             var $sticky_elem = $(this);
+            if (self._is_paused) {
+                self._set_element_to_default_positioning($sticky_elem);
+            }
+            
             var sticky_elem_height = $sticky_elem.outerHeight();
 
             var is_element_smaller_than_window =
@@ -120,9 +135,13 @@
                 }
                 $('body').addClass('sticky');
             } else {
-                $sticky_elem.removeAttr('style');
-                $('body').removeClass('sticky');
+                self._set_element_to_default_positioning($sticky_elem);
             }
+        },
+        
+        _set_element_to_default_positioning: function ($sticky_elem) {
+            $sticky_elem.removeAttr('style');
+            $('body').removeClass('sticky');
         }
     };
 
