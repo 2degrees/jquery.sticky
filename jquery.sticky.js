@@ -83,6 +83,7 @@
             var $sticky_elem = $(this);
             if (self._is_paused) {
                 self._set_element_to_default_positioning($sticky_elem);
+                return true;
             }
             
             var sticky_elem_height = $sticky_elem.outerHeight();
