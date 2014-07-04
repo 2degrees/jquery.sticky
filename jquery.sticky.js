@@ -1,7 +1,7 @@
 /*
  * jQuery sticky
  *
- * Copyright (c) 2011-2013, 2degrees Limited <egoddard@tech.2degreesnetwork.com>.
+ * Copyright (c) 2011-2014, 2degrees Limited <egoddard@tech.2degreesnetwork.com>.
  * All Rights Reserved.
  *
  * This file is part of jquery.select2autocomplete
@@ -17,7 +17,15 @@
  * jQuery 1.6+
  */
 
-(function ($) {
+(function (factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD
+        define(['jquery'], factory);
+    } else {
+        // Browser globals
+        factory(jQuery);
+    }
+}(function ($) {
     'use strict';
 
     var NON_DEFAULT_FLOW_POSITIONS = ['relative', 'absolute'];
@@ -188,5 +196,5 @@
         return width;
     };
 
-})(jQuery);
+}));
 

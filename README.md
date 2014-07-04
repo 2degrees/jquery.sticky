@@ -22,6 +22,18 @@ $(function () {
 });
 ```
 
+### AMD
+
+Alternatively you can include the module with require.js or similar:
+
+```javascript
+require(['jquery', 'jquery.sticky'], function ($) {
+  $(function () {
+    $('#navigation').sticky();
+  });
+});
+```
+
 What do you mean by sticky?
 ---------------------------
 
